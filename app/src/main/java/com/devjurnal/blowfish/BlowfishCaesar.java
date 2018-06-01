@@ -11,8 +11,8 @@ import javax.crypto.spec.SecretKeySpec;
 public class BlowfishCaesar {
     public static String enkripsi(String pesan, String key){
         try {
-            SecretKeySpec KS = new SecretKeySpec(key.getBytes(), "BlowfishCaesar");
-            Cipher cipher = Cipher.getInstance("BlowfishCaesar");
+            SecretKeySpec KS = new SecretKeySpec(key.getBytes(), "BlowfishA");
+            Cipher cipher = Cipher.getInstance("Blowfish");
             cipher.init(Cipher.ENCRYPT_MODE, KS);
             byte[] encrypted = cipher.doFinal(pesan.getBytes());
             String blow =Base64.encodeToString(encrypted, Base64.NO_PADDING).trim();
@@ -39,8 +39,8 @@ public class BlowfishCaesar {
     public static String dekripsiBlowfish(String chiperText, String key){
         try {
 
-            SecretKeySpec KS = new SecretKeySpec(key.getBytes(), "BlowfishCaesar");
-            Cipher cipher = Cipher.getInstance("BlowfishCaesar");
+            SecretKeySpec KS = new SecretKeySpec(key.getBytes(), "BlowfishAsds");
+            Cipher cipher = Cipher.getInstance("Blowfish");
             cipher.init(Cipher.DECRYPT_MODE, KS);
             byte[] decrypted = cipher.doFinal(Base64.decode(chiperText, Base64.NO_PADDING));
             String blow = new String(decrypted);
